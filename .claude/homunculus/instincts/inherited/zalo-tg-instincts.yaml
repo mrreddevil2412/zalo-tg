@@ -1,0 +1,660 @@
+# Instincts generated from https://github.com/mrreddevil2412/zalo-tg
+# Generated: 2026-06-14T02:42:57.507Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: zalo-tg-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, chore, docs, perf
+
+## Evidence
+
+- 100 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix: send attachment and quote as separate calls (Zalo code 114), docs: add setup video to README
+
+---
+id: zalo-tg-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Commit Length
+
+## Action
+
+Write moderate-length commit messages (~58 characters)
+
+## Evidence
+
+- Average commit message length: 58 chars
+- Based on 100 commits
+
+---
+id: zalo-tg-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: zalo-tg-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: zalo-tg-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: zalo-tg-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: telegram, utils, zalo
+
+---
+id: zalo-tg-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: zalo-tg-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~11x per month
+- Files: src/*, src/telegram/*, src/zalo/*
+
+---
+id: zalo-tg-workflow-add-or-update-telegram-command
+trigger: "when doing add or update telegram command"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Workflow Add Or Update Telegram Command
+
+## Action
+
+Follow the add-or-update-telegram-command workflow:
+1. Edit or add logic in src/telegram/handler.ts to implement the command.
+2. Update src/index.ts to register the command with setMyCommands.
+3. Optionally update src/zalo/handler.ts or src/zalo/client.ts if Zalo integration is needed.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: src/telegram/handler.ts, src/index.ts
+
+---
+id: zalo-tg-workflow-add-or-update-zalo-integration-feature
+trigger: "when doing add or update zalo integration feature"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Workflow Add Or Update Zalo Integration Feature
+
+## Action
+
+Follow the add-or-update-zalo-integration-feature workflow:
+1. Edit src/zalo/handler.ts to implement or fix the feature.
+2. Optionally update src/store.ts for caching or state management.
+3. Optionally update src/telegram/handler.ts if Telegram-side logic is affected.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: src/zalo/handler.ts, src/store.ts
+
+---
+id: zalo-tg-workflow-add-or-update-readme-or-documentation
+trigger: "when doing add or update readme or documentation"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Workflow Add Or Update Readme Or Documentation
+
+## Action
+
+Follow the add-or-update-readme-or-documentation workflow:
+1. Edit README.md and/or README.vi.md.
+2. Optionally add or remove media files (e.g., setup videos).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: README.md, README.vi.md
+
+---
+id: zalo-tg-workflow-fix-bug-in-message-or-reaction-forwarding
+trigger: "when doing fix bug in message or reaction forwarding"
+confidence: 0.75
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Workflow Fix Bug In Message Or Reaction Forwarding
+
+## Action
+
+Follow the fix-bug-in-message-or-reaction-forwarding workflow:
+1. Edit src/zalo/handler.ts to fix forwarding logic.
+2. Optionally update src/store.ts for deduplication or state tracking.
+3. Optionally update src/telegram/handler.ts if Telegram-side logic is involved.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~5x per month
+- Files: src/zalo/handler.ts, src/store.ts, src/telegram/handler.ts
+
+---
+id: zalo-tg-workflow-add-or-update-updater-feature
+trigger: "when doing add or update updater feature"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Workflow Add Or Update Updater Feature
+
+## Action
+
+Follow the add-or-update-updater-feature workflow:
+1. Edit src/updater.ts to implement update logic.
+2. Update src/index.ts and src/telegram/handler.ts to add commands or notifications.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/updater.ts, src/index.ts, src/telegram/handler.ts
+
+---
+id: zalo-tg-instinct-filename-camelcase
+trigger: "When creating or renaming a file in the codebase"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Filename Camelcase
+
+## Action
+
+Name the file using camelCase (e.g., myFile.ts)
+
+## Evidence
+
+- Pattern in namingConventions.files
+- Observed in src/telegram/handler.ts
+
+---
+id: zalo-tg-instinct-function-camelcase
+trigger: "When defining a function"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Function Camelcase
+
+## Action
+
+Name the function using camelCase
+
+## Evidence
+
+- Pattern in namingConventions.functions
+
+---
+id: zalo-tg-instinct-class-pascalcase
+trigger: "When defining a class"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Class Pascalcase
+
+## Action
+
+Name the class using PascalCase
+
+## Evidence
+
+- Pattern in namingConventions.classes
+
+---
+id: zalo-tg-instinct-constant-screaming-snake-case
+trigger: "When defining a constant"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Constant Screaming Snake Case
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for the constant name
+
+## Evidence
+
+- Pattern in namingConventions.constants
+
+---
+id: zalo-tg-instinct-import-relative
+trigger: "When importing modules within the repository"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Import Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in importStyle
+- Observed in src/telegram/handler.ts
+
+---
+id: zalo-tg-instinct-export-named
+trigger: "When exporting functions or classes"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Export Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in exportStyle
+
+---
+id: zalo-tg-instinct-try-catch-error-handling
+trigger: "When handling potential errors in code"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Try Catch Error Handling
+
+## Action
+
+Wrap error-prone code in try-catch blocks
+
+## Evidence
+
+- Pattern in errorHandling.style
+- Seen in src/zalo/handler.ts
+
+---
+id: zalo-tg-instinct-global-error-handler
+trigger: "When implementing error handling for the application"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Global Error Handler
+
+## Action
+
+Ensure a global error handler is present
+
+## Evidence
+
+- Pattern in errorHandling.globalHandler
+
+---
+id: zalo-tg-instinct-git-conventional-commit
+trigger: "When writing a git commit message"
+confidence: 0.93
+domain: git
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Git Conventional Commit
+
+## Action
+
+Use conventional commit prefixes (fix, feat, chore, docs, perf)
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in commit: 'fix: send attachment and quote as separate calls (Zalo code 114)'
+
+---
+id: zalo-tg-instinct-git-commit-length
+trigger: "When writing a git commit message"
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Git Commit Length
+
+## Action
+
+Keep the commit message concise, around 58 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: zalo-tg-instinct-git-commit-format
+trigger: "When writing a git commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Git Commit Format
+
+## Action
+
+Format as '<type>: <message>' (e.g., 'fix: correct typo')
+
+## Evidence
+
+- Pattern in commits.type
+- Seen in commit: 'docs: add setup video to README'
+
+---
+id: zalo-tg-instinct-test-location-separate
+trigger: "When adding or updating tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Test Location Separate
+
+## Action
+
+Place test files in a separate directory from source code
+
+## Evidence
+
+- Pattern in architecture.testLocation
+
+---
+id: zalo-tg-instinct-feature-dev-test-after-impl
+trigger: "When implementing a new feature"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Feature Dev Test After Impl
+
+## Action
+
+Write tests for the feature after implementation
+
+## Evidence
+
+- feature-development workflow: 'Add tests for feature' after implementation
+
+---
+id: zalo-tg-instinct-feature-dev-doc-after-code
+trigger: "When implementing a new feature"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Feature Dev Doc After Code
+
+## Action
+
+Update documentation after code and tests are added
+
+## Evidence
+
+- feature-development workflow: 'Update documentation' after tests
+
+---
+id: zalo-tg-instinct-add-telegram-command
+trigger: "When someone wants to add a new Telegram command or update the command menu"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Add Telegram Command
+
+## Action
+
+Edit or add logic in src/telegram/handler.ts and update src/index.ts to register the command
+
+## Evidence
+
+- add-or-update-telegram-command workflow
+- Seen in commit sequence: 'Edit or add logic in src/telegram/handler.ts', 'Update src/index.ts'
+
+---
+id: zalo-tg-instinct-add-zalo-feature
+trigger: "When someone wants to add or fix Zalo-related features such as message forwarding, reactions, or group support"
+confidence: 0.93
+domain: workflow
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Add Zalo Feature
+
+## Action
+
+Edit src/zalo/handler.ts and optionally src/store.ts to implement or fix the feature
+
+## Evidence
+
+- add-or-update-zalo-integration-feature workflow
+- Seen in commit sequence: 'Edit src/zalo/handler.ts', 'Optionally update src/store.ts'
+
+---
+id: zalo-tg-instinct-update-docs
+trigger: "When someone wants to update the documentation or README"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Update Docs
+
+## Action
+
+Edit README.md and/or README.vi.md, optionally adding/removing media files
+
+## Evidence
+
+- add-or-update-readme-or-documentation workflow
+- Seen in commit: 'docs: add setup video to README'
+
+---
+id: zalo-tg-instinct-fix-forwarding-bug
+trigger: "When someone notices bugs in message/reaction forwarding or echo behavior"
+confidence: 0.92
+domain: workflow
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Fix Forwarding Bug
+
+## Action
+
+Edit src/zalo/handler.ts to fix forwarding logic, optionally update src/store.ts and src/telegram/handler.ts
+
+## Evidence
+
+- fix-bug-in-message-or-reaction-forwarding workflow
+- Seen in commit sequence: 'Edit src/zalo/handler.ts to fix forwarding logic'
+
+---
+id: zalo-tg-instinct-add-updater-feature
+trigger: "When someone wants to add or improve update checking or update-related commands"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: mrreddevil2412/zalo-tg
+---
+
+# Zalo Tg Instinct Add Updater Feature
+
+## Action
+
+Edit src/updater.ts to implement update logic, update src/index.ts and src/telegram/handler.ts to add commands or notifications
+
+## Evidence
+
+- add-or-update-updater-feature workflow
+- Seen in commit sequence: 'Edit src/updater.ts', 'Update src/index.ts and src/telegram/handler.ts'
+
